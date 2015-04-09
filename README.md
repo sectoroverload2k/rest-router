@@ -1,5 +1,13 @@
-# rest-router
-REST Router for PHP
+# REST Router for PHP
+This code provides the basic framework for a PHP developer that wants to build a REST service.
+Some of the features provided in this framework are:
+* API Authentication
+* Multiple request methods
+  * GET
+  * POST
+  * PUT
+  * DELETE
+* Custom URL routing to support variables
 
 ## Controller Versions, Classes and Actions
 /controllers/version/controller/action
