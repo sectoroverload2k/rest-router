@@ -272,6 +272,8 @@ function isValidApiUser($user,$pass){
 /*
  * Normally, you would o some sort of user authentication here. The following is just an example.
  */
+	define('USERNAME',$user);
+	define('USER_ID',1);
 	return true;
 
 /*
