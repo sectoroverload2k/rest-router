@@ -1,7 +1,7 @@
 # rest-router
 REST Router for PHP
 
-# Controller Versions, Classes and Actions
+## Controller Versions, Classes and Actions
 /controllers/version/controller/action
 Example Request: GET /v1/home/index
 
@@ -9,7 +9,7 @@ Example Request: GET /v1/home/index
 * Default controller class is *home*
 * Default action is *index*
 
-The REST Router will do the following:
+##The REST Router will do the following:
 * try to find a folder called *v1* in the **/controllers** folder.
 * Load *home* controller in file **/controllers/v1/home.php**
 * Because this is a *GET* request, it will try to following:
@@ -18,7 +18,7 @@ The REST Router will do the following:
   * if not found, it will return an error
 
 
-# Request Methods
+## Request Methods
 * GET
 * POST
 * PUT
