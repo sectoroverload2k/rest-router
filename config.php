@@ -32,9 +32,6 @@ require(BASE_DIR.'/includes/class.database.php');
 include(BASE_DIR.'/includes/class.router.php');
 include(BASE_DIR.'/includes/class.rest.php');
 
-function pre($v){echo '<pre>';print_r($v);echo '</pre>';}
-
-
 define('SESSION_TOKEN_NAME','RestRouterApiToken');
 
 
