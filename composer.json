@@ -1,0 +1,21 @@
+{
+    "name": "sectoroverload2k/rest-router",
+    "description": "PHP Library for REST API",
+    "type": "library",
+    "keywords": ["api","rest"],
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RestRouter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anthony Linsday",
+            "email": "anthony@linsday.net"
+        }
+    ]
+}
