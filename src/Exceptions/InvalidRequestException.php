@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class InvalidRequestException extends CustomException { 
 	function __construct($message='Bad Request', $code=400){

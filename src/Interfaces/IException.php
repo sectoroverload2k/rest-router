@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Interfaces;
 
 interface IException
 {

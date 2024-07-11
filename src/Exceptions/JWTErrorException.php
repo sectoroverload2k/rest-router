@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class JWTErrorException extends CustomException {
   function __construct($message='JWT Token Error', $code=400){

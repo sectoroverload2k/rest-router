@@ -1,3 +1,4 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
+
 class RestException extends CustomException { };

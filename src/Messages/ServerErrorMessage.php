@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Messages;
 
 //class ServerErrorMessage extends RestResponse {
 class ServerErrorMessage {

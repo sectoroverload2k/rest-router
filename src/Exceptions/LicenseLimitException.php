@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class LicenseLimitException extends CustomException {
   function __construct($message = 'License Limit', $code=403){

@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class UnauthenticatedRequestException extends CustomException {
 	function __construct($message='Unauthenicated Access', $code=401){

@@ -1,4 +1,4 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class AuthenticationException extends CustomException { };

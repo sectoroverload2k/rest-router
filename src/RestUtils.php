@@ -1,6 +1,8 @@
 <?php
 namespace RestRouter;
 
+use RestRouter\Messages\ServerErrorMessage;
+
 class RestUtils
 {
 
@@ -76,7 +78,7 @@ class RestUtils
 
   public static function sendJsonError($status, $body = null, $content_type = 'application/json')
 	{
-		$response = new Messages\ServerErrorMessage($body);
+		$response = new ServerErrorMessage($body);
 		if(gettype($body)=='object'){
 			$response->setType(get_class($body));
 		}

@@ -4,7 +4,7 @@ namespace RestRouter;
 /* URL Router class */
 /* ------------------------------------------------------------- */
  
-class Router {
+class WebRouter {
   static protected $instance;
   static protected $controller;
   static protected $action;

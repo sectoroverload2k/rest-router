@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class NotImplementedException extends CustomException {
   function __construct($message='Not Implemented', $code=501){

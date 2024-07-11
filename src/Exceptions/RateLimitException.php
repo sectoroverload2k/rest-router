@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class RateLimitException extends CustomException {
 	function __construct($message = 'Rate Limit Exceeded', $code=429){

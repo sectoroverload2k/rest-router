@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class EmptyResponseException extends CustomException {
 	function __construct($message='No Content', $code=200){

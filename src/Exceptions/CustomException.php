@@ -1,7 +1,10 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
-abstract class CustomException extends Exception implements IException
+use RestRouter\RestUtils;
+use RestRouter\Interfaces\IException;
+
+abstract class CustomException extends \Exception implements IException
 {
     protected $message = 'Unknown exception';     // Exception message
     private   $type;                              // Changes by type

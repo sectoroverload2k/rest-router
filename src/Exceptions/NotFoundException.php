@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Exceptions;
 
 class NotFoundException extends CustomException {
   function __construct($message='Not Found', $code=404){

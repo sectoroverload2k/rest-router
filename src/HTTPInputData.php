@@ -46,7 +46,7 @@ class HTTPInputData
         return ['variables' => $variables, 'files' => []];
     }
 
-		private function cleanBlockedVariables($variables){
+		private static function cleanBlockedVariables($variables){
 			foreach(HTTPInputData::BLOCKED_VARIABLES as $key){
 				if(isset($variables[ $key ])){
 					die(new Exceptions\InvalidRequestException('Cannot update key: '.$key));
