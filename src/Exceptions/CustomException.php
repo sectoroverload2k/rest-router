@@ -16,8 +16,9 @@ abstract class CustomException extends \Exception implements IException
 
     public function __construct($message = "", $code = 0)
     {
-      error_log(sprintf('EXCEPTION (%d): %s', $code, $message));
-        $this->type = get_class($this);
+				error_log(sprintf('EXCEPTION (%d): %s', $code, $message));
+				$reflect = new \ReflectionClass($this);
+				$this->type = $reflect->getShortName();
         if (!$message) {
             throw new $this('Unknown '. get_class($this));
         }
