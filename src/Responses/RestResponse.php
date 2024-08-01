@@ -1,7 +1,7 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Responses;
 
-abstract class RestResponse implements JsonSerializable {
+abstract class RestResponse implements \JsonSerializable {
 	var $status, $type, $data;
 
 	public function __construct($status=200, $data=[]){

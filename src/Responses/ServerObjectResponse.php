@@ -1,5 +1,5 @@
 <?php
-namespace RestRouter;
+namespace RestRouter\Responses;
 
 class ServerObjectResponse extends RestResponse {
 	var $status, $success, $data, $type;
