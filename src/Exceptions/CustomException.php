@@ -10,9 +10,7 @@ abstract class CustomException extends \Exception implements IException
     private   $type;                              // Changes by type
     private   $string;                            // Unknown
     protected $code    = 0;                       // User-defined exception code
-    protected string $file;                       // Source filename of exception
-    protected $filename;                          // Source filename of exception
-    protected int $line;                          // Source line of exception
+    // $file and $line are inherited from parent Exception class
     private   $trace;                             // Unknown
 
     public function __construct($message = "", $code = 0)

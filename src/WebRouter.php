@@ -80,7 +80,7 @@ class WebRouter {
 		$uri_parts = parse_url($url);
 
     $items = explode('/',$uri_parts['path']);
-		parse_str(@$uri_parts['query'], $params);
+		parse_str($uri_parts['query'] ?? '', $params);
  
     // remove empty blocks
     foreach($items as $key => $value) {
@@ -98,7 +98,7 @@ class WebRouter {
     public static function init($baseurl='') {
 		$uri_parts = parse_url($_SERVER['REQUEST_URI']);
 		$url = $uri_parts['path'];
-		parse_str(@$uri_parts['query'], $params);
+		parse_str($uri_parts['query'] ?? '', $params);
 
 #    if($baseurl != ''){
 #      $url = preg_replace("/^\/$baseurl/", '', $_SERVER['REQUEST_URI'],1);
@@ -134,8 +134,8 @@ class WebRouter {
     }
  
     if (!$isCustom) self::defaultRoutes($url);
-    if (!strlen(self::$controller)) self::$controller = self::$config['default-controller'];
-    if (!strlen(self::$action)) self::$action = self::$config['default-action'];
+    if (!strlen((string)self::$controller)) self::$controller = self::$config['default-controller'];
+    if (!strlen((string)self::$action)) self::$action = self::$config['default-action'];
   }
  
   public static function addRule($rule, $target) {
