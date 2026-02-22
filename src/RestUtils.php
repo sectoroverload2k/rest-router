@@ -61,7 +61,13 @@ class RestUtils
 		if(isset($data['data']))
 		{
 			// translate the JSON to an Object for use however you want
-			$return_obj->setData(json_decode($data['data']));
+			// Check if it's a string (needs decoding) or already decoded (array/object)
+			if (is_string($data['data'])) {
+				$return_obj->setData(json_decode($data['data']));
+			} else {
+				// Already decoded by HTTPInputData::process()
+				$return_obj->setData($data['data']);
+			}
 		}
 		return $return_obj;
 	}
@@ -78,7 +84,7 @@ class RestUtils
 
   public static function sendJsonError($status, $body = null, $content_type = 'application/json')
 	{
-		$response = new ServerErrorMessage($body);
+		$response = new ServerErrorMessage($body, $status);
 		if(gettype($body)=='object'){
 			$response->setType(get_class($body));
 		}

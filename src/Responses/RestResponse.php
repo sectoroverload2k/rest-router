@@ -8,7 +8,7 @@ abstract class RestResponse implements \JsonSerializable {
 		$this->status = $status;
 		$this->data = $data;
 	}
-	public function jsonSerialize(){
+	public function jsonSerialize(): mixed{
 		return $this;
 	}
 	public function setType($type){
