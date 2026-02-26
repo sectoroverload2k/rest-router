@@ -36,9 +36,19 @@ class HTTPInputData
 
         // can be handled by built in PHP functionality
         $content = file_get_contents('php://input');
-        $variables = json_decode($content,true);
-        if (empty($variables)) {
+
+        // Try JSON first
+        $variables = json_decode($content, true);
+
+        // Only fall back to parse_str if JSON parsing failed (not just empty result)
+        // This prevents valid JSON from being treated as URL-encoded data
+        if ($variables === null && json_last_error() !== JSON_ERROR_NONE) {
             parse_str($content, $variables);
+        }
+
+        // Ensure $variables is always an array
+        if (!is_array($variables)) {
+            $variables = [];
         }
 
 				$variables = self::cleanBlockedVariables($variables);
