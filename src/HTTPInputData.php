@@ -37,13 +37,25 @@ class HTTPInputData
         // can be handled by built in PHP functionality
         $content = file_get_contents('php://input');
 
+        // Determine if client expects JSON based on Content-Type
+        $expectsJson = str_contains($content_type, 'application/json');
+
         // Try JSON first
         $variables = json_decode($content, true);
 
-        // Only fall back to parse_str if JSON parsing failed (not just empty result)
-        // This prevents valid JSON from being treated as URL-encoded data
+        // Only fall back to parse_str if:
+        // 1. JSON parsing failed AND
+        // 2. Content-Type is NOT application/json (to avoid mangling invalid JSON)
         if ($variables === null && json_last_error() !== JSON_ERROR_NONE) {
-            parse_str($content, $variables);
+            if (!$expectsJson) {
+                // Likely form-encoded data, use parse_str
+                parse_str($content, $variables);
+            } else {
+                // Invalid JSON with application/json Content-Type - return empty
+                // This prevents parse_str from mangling malformed JSON
+                error_log("HTTPInputData: Invalid JSON received with application/json Content-Type: " . json_last_error_msg());
+                $variables = [];
+            }
         }
 
         // Ensure $variables is always an array
