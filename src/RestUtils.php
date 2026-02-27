@@ -92,6 +92,22 @@ class RestUtils
     RestUtils::sendResponse($status, $response, $content_type);
   } 
 
+  /**
+   * Send an HTTP redirect
+   *
+   * @param string $location URL to redirect to
+   * @param int $status Redirect status code (301 = permanent, 302 = temporary)
+   */
+  public static function sendRedirect($location, $status = 302)
+  {
+    if (!in_array($status, [301, 302, 303, 307, 308])) {
+      $status = 302; // Default to temporary redirect
+    }
+
+    header('Location: ' . $location, true, $status);
+    RestUtils::sendResponse($status, '', 'text/html');
+  }
+
   public static function sendJsonResponse($status = 200, $body = [], $content_type = 'application/json')
   {
 
@@ -126,6 +142,12 @@ class RestUtils
 		header($status_header);
 		// set the content type
 		header('Content-type: ' . $content_type);
+
+		// Redirect status codes should not have a body
+		// Just send headers and exit (prevents default nginx HTML from being shown)
+		if (in_array($status, [301, 302, 303, 307, 308])) {
+			exit;
+		}
 
 		// pages with body are easy
 		if($body != '')
